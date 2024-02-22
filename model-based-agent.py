@@ -1,10 +1,10 @@
 import random
 
 class Agent:
-    def __init__(self):
-        self.location = None
-        self.status = None
-        self.model = {"A": "Coin", "B": "Coin", "C": "Coin"}
+    def __init__(self, location_start, status_start, model_map):
+        self.location = location_start
+        self.status = status_start
+        self.model = model_map
         self.visited = set()
         
     def act(self):
@@ -32,6 +32,6 @@ class Agent:
         print("Agent is moving to {}".format(self.location))
 
 # Test
-agent = Agent()
+agent = Agent("A", "Coin", {"A": "Coin", "B": "Empty", "C": "Coin", "D": "Coin", "E": "Empty"})
 for _ in range(10):
     agent.act()
